@@ -7,28 +7,25 @@ class Author(BaseModel):
     name: str
 
 
-class Genre(BaseModel):
-    id: int
-    title: str
-
-
 class Book(BaseModel):
-    id: int
     title: str
-    description: Optional[str]
-    author: Author
-    genre: Optional[Genre]
+    description: Optional[str] = ""
+    author_id: int
+    owner_id: Optional[int]
+    genre: Optional[str] = "FANTASY"
     status: Optional[str] = "WISHING"
 
     class Config:
-        orm_mode = True
-        schema_extra = {
-            "example": {
-                "id": 1,
-                "title": "The Dark Tower",
-                "author": "Stephen King",
-            }
-        }
+        from_attributes = True
+
+
+class BookOut(BaseModel):
+    id: int
+    title: str
+    author_id: int
+
+    class Config:
+        from_attributes = True
 
 
 class User(BaseModel):
