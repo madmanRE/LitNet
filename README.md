@@ -122,7 +122,9 @@ def get_db():
             setattr(book, key, value)
         db.commit()
         return {"message": "Book updated successfully"}
-```
+
+### Регистрация и авторизация
+
 
 
 

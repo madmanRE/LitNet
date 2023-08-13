@@ -29,8 +29,7 @@ class BookOut(BaseModel):
 
 
 class User(BaseModel):
-    id: int
-    name: str
-    email: str
-    password: str
-    is_authenticated: bool = True
+    username: str
+    email: str | None = None
+    full_name: str | None = None
+    disabled: bool | None = None
