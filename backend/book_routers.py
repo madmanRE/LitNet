@@ -85,7 +85,7 @@ async def add_book(book: schemas.Book, Authorize: AuthJWT = Depends()):
     return new_book
 
 
-@book_router.patch("/update/{book_title}")
+@book_router.patch("/update/{book_title}/")
 async def change_book(
     book_title: str, updated_book: schemas.Book, Authorize: AuthJWT = Depends()
 ):
