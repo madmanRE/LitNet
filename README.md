@@ -39,17 +39,17 @@
 
 ### Разработка маршрутов
 
-| METHOD   | ROUTE                             | FUNCTIONALITY                                 |ACCESS|
-|----------|-----------------------------------|-----------------------------------------------| ------------ |
-| *POST*   | ```/auth/signup/```               | _Register new user_                           |_All users_|
-| *POST*   | ```/auth/login/```                | _Login user_                                  |_All users_|
-| *GET*    | ```/books/```                     | _Get all books of the user_                   |_Authenticated users_|
-| *GET*    | ```/books/{book_title}/```        | _Get a book_                                  |_Authenticated users_|
-| *GET*    | ```/books/like/{book_title}/```   | _Get a list of similar books_                 |_Authenticated users_|
-| *POST*   | ```/books/add/```                 | _Add a book to collections_                   |_Authenticated users_|
-| *PATCH*  | ```/books/update/{boot_title}/``` | _Update a book in collection_                 |_Authenticated users_|
-| *DELETE* | ```/books/delete/```    | _Delete a book in collection_                 |_Authenticated users_|
-| *GET*    | ```/docs/```                      | _View API documentation_                      |_All users_|
+| METHOD   | ROUTE                             | FUNCTIONALITY                 |ACCESS|
+|----------|-----------------------------------|-------------------------------| ------------ |
+| *POST*   | ```/auth/signup/```               | _Register new user_           |_All users_|
+| *POST*   | ```/auth/login/```                | _Login user_                  |_All users_|
+| *GET*    | ```/auth/refresh/```              | _Refresh access token_        |_All users_|
+| *GET*    | ```/books/```                     | _Get all books of the user_   |_Authenticated users_|
+| *GET*    | ```/books/{book_title}/```        | _Get a book by title_         |_Authenticated users_|
+| *POST*   | ```/books/add/```                 | _Add a book to collections_   |_Authenticated users_|
+| *PATCH*  | ```/books/update/{boot_title}/``` | _Update a book in collection_ |_Authenticated users_|
+| *DELETE* | ```/books/delete/```              | _Delete a book in collection_ |_Authenticated users_|
+| *GET*    | ```/docs/```                      | _View API documentation_      |_All users_|
 
 ### Разработка модели данных
 
