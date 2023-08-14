@@ -14,9 +14,7 @@ auth_router = APIRouter(
 session = SessionLocal(bind=engine)
 
 
-@auth_router.post(
-    "/signup/", response_model=schemas.User, status_code=status.HTTP_201_CREATED
-)
+@auth_router.post("/signup/", status_code=status.HTTP_201_CREATED)
 async def signup(user: schemas.User):
     db_email = (
         session.query(models.User).filter(models.User.email == user.email).first()
@@ -36,7 +34,7 @@ async def signup(user: schemas.User):
     session.add(new_user)
     session.commit()
 
-    return new_user
+    return {"message": f"New user {new_user.name} has been created successfully"}
 
 
 # login route

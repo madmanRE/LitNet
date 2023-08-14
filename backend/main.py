@@ -4,7 +4,6 @@ from book_routers import book_router
 from fastapi_jwt_auth import AuthJWT
 import schemas
 
-
 app = FastAPI()
 
 

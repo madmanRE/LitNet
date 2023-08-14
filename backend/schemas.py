@@ -30,7 +30,7 @@ class BookOut(BaseModel):
 
 class User(BaseModel):
     name: str
-    email: str | None = None
+    email: str
     hashed_password: str
 
     class Config:

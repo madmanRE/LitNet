@@ -15,9 +15,7 @@ session = SessionLocal(bind=engine)
 
 
 @book_router.get("/")
-async def get_all_books(
-    Authorize: AuthJWT = Depends(), skip: int = 0, limit: int = 10
-) -> List[schemas.BookOut]:
+async def get_all_books(Authorize: AuthJWT = Depends(), skip: int = 0, limit: int = 10):
     try:
         Authorize.jwt_required()
     except Exception as e:
@@ -47,9 +45,7 @@ async def get_book_by_title(title: str, Authorize: AuthJWT = Depends()):
         )
     current_user = Authorize.get_jwt_subject()
 
-    user = (
-        session.query(models.User).models.User(models.User.name == current_user).first()
-    )
+    user = session.query(models.User).filter(models.User.name == current_user).first()
 
     book = (
         session.query(models.Book)
@@ -82,7 +78,7 @@ async def add_book(book: schemas.Book, Authorize: AuthJWT = Depends()):
     session.add(new_book)
     session.commit()
     session.refresh(new_book)
-    return new_book
+    return {"message": "The book has been added successfully"}
 
 
 @book_router.patch("/update/{book_title}/")
@@ -127,9 +123,7 @@ async def delete_book(
         )
     current_user = Authorize.get_jwt_subject()
 
-    user = (
-        session.query(models.User).models.User(models.User.name == current_user).first()
-    )
+    user = session.query(models.User).filter(models.User.name == current_user).first()
 
     book = None
     if book_id:
