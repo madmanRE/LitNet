@@ -11,6 +11,7 @@ TODO:
   * Create tests
 * Frontend
   * Create Vue js app
+  * Create fetch query for Google Books API
   * ...
 * Deploy
   * Run app into Docker
